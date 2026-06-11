@@ -67,7 +67,7 @@
     }
 
     .seer-hero .hero-body {
-      padding: 5rem 1.5rem 3.25rem;
+      padding: 5rem 1.5rem 2rem;
     }
 
     .publication-title {
@@ -98,6 +98,17 @@
     .publication-authors a {
       color: var(--seer-ink);
       font-weight: 600;
+    }
+
+    .publication-venue {
+      margin-top: 0.55rem;
+      color: var(--seer-ink);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .publication-link-column {
+      padding-bottom: 0;
     }
 
     .publication-links {
@@ -164,14 +175,14 @@
     }
 
     .seer-teaser .hero-body {
-      padding: 2.5rem 1.5rem 3.25rem;
+      padding: 1.35rem 1.5rem 3.25rem;
     }
 
     .seer-teaser img {
       width: 100%;
       height: auto;
       border: 1px solid var(--seer-border);
-      border-radius: var(--seer-radius-lg);
+      border-radius: 0;
       background: var(--seer-surface);
       box-shadow: var(--seer-shadow);
     }
@@ -497,7 +508,7 @@
 
     @media screen and (max-width: 768px) {
       .seer-hero .hero-body {
-        padding: 3.5rem 1.1rem 2.5rem;
+        padding: 3.5rem 1.1rem 1.75rem;
       }
 
       .seer-content-card {
@@ -561,7 +572,9 @@
             <span class="author-block"><sup>2</sup>University of Science and Technology of China</span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="is-size-5 publication-venue">MICCAI 2026</div>
+
+          <div class="column has-text-centered publication-link-column">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
