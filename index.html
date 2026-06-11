@@ -7,20 +7,6 @@
   <meta name="keywords" content="SEER, Free-Text Promptable Medical Image Segmentation, 3D Medical Image Segmentation, Grounded Reasoning, Skill-Evolving Reasoning">
   <title>SEER: Skill-Evolving Grounded Reasoning for Free-Text Promptable 3D Medical Image Segmentation</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script> -->
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -77,7 +63,7 @@
       background:
         linear-gradient(180deg, rgba(249, 250, 251, 0.96), rgba(255, 255, 255, 0.98)),
         radial-gradient(circle at 50% 0%, rgba(17, 24, 39, 0.08), transparent 30rem);
-      border-bottom: 1px solid var(--seer-border);
+      border-bottom: 0;
     }
 
     .seer-hero .hero-body {
@@ -85,14 +71,23 @@
     }
 
     .publication-title {
-      max-width: 1100px;
+      max-width: 1280px;
       margin-left: auto;
       margin-right: auto;
-      font-size: clamp(2.15rem, 4.6vw, 4rem);
+      font-size: clamp(2rem, 3.2vw, 2.9rem);
       letter-spacing: -0.015em;
-      line-height: 1.12;
+      line-height: 1.1;
       font-weight: 800;
-      letter-spacing: -0.015em;
+    }
+
+    .publication-title .title-line {
+      display: block;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .publication-title .title-line {
+        white-space: nowrap;
+      }
     }
 
     .publication-authors {
@@ -117,6 +112,8 @@
     .publication-links .link-block {
       display: inline-flex;
       align-items: center;
+      width: auto;
+      flex: 0 0 auto;
       margin: 0;
     }
 
@@ -124,10 +121,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: auto;
+      min-width: 0;
+      max-width: max-content;
       height: 2.65rem;
-      min-width: 8.25rem;
       padding: 0 1rem;
       line-height: 1;
+      white-space: nowrap;
     }
 
     .publication-links .button .icon {
@@ -152,7 +152,7 @@
 
     .seer-teaser {
       background: var(--seer-surface);
-      border-bottom: 1px solid var(--seer-border);
+      border-bottom: 0;
     }
 
     .seer-teaser .hero-body {
@@ -395,6 +395,10 @@
       color: var(--seer-ink);
     }
 
+    #experiments-findings .results-table td.std-col {
+      font-weight: 400 !important;
+    }
+
     #experiments-findings .group-separator td {
       border-top: 2px solid var(--seer-border-strong);
     }
@@ -412,6 +416,15 @@
       background: #ffffff;
     }
 
+    #experiments-findings .qualitative-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
     .seer-bibtex-section {
       padding-top: 0.75rem;
       padding-bottom: 3.75rem;
@@ -419,21 +432,23 @@
     }
 
     .seer-bibtex-section .container {
-      border: 1px solid var(--seer-border);
-      border-radius: var(--seer-radius-lg);
-      background: var(--seer-surface);
-      box-shadow: var(--seer-shadow-soft);
-      padding: 1.8rem;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
     }
 
     .seer-bibtex-section pre {
-      border-radius: var(--seer-radius-sm);
-      background: #0f172a;
-      color: #e5e7eb;
-      padding: 1.15rem;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--seer-text);
+      padding: 0;
       overflow-x: auto;
       font-size: 0.9rem;
       line-height: 1.55;
+      box-shadow: none;
     }
 
     .seer-bibtex-section code {
@@ -443,7 +458,7 @@
 
     .seer-footer {
       background: #f3f4f6;
-      border-top: 1px solid var(--seer-border);
+      border-top: 0;
       color: var(--seer-muted);
       padding: 2.5rem 1.5rem;
     }
@@ -482,10 +497,6 @@
         padding: 1rem;
       }
 
-      .seer-bibtex-section .container {
-        padding: 1.25rem;
-      }
-
       .results-table .std-col {
         font-weight: 400 !important;
       }
@@ -500,54 +511,17 @@
   <script src="./static/js/index.js"></script>
 </head>
 <body>
-<!-- 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
 
 
 <section class="hero seer-hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container is-max-fullhd">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SEER: Skill-Evolving Grounded Reasoning for Free-Text Promptable 3D Medical Image Segmentation</h1>
+          <h1 class="title is-1 publication-title">
+            <span class="title-line">SEER: Skill-Evolving Grounded Reasoning for</span>
+            <span class="title-line">Free-Text Promptable 3D Medical Image Segmentation</span>
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://ztrura.com">Tongrui Zhang</a><sup>1</sup>,</span>
@@ -655,7 +629,7 @@
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths seer-content-card seer-abstract-card">
+      <div class="column is-full seer-content-card seer-abstract-card">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -884,14 +858,12 @@
         <p class="caption">
           Under three clinically plausible free-text prompt variants, SEER produces consistent, on-target masks across all variants, reflecting evidence-aligned disambiguation from the image. In contrast, baseline outputs are highly prompt-sensitive in free-text prompting mode, frequently drifting to off-target regions or collapsing to degenerate predictions, such as empty or fragmented masks, under minor wording changes.
         </p>
-        <div class="figure-card">
-          <figure class="image">
-            <img
-              src="./static/images/fig_qual_sota_final.png"
-              alt="Qualitative comparison of SEER and baseline methods under three free-text prompt variants"
-            >
-          </figure>
-        </div>
+        <figure class="image qualitative-figure">
+          <img
+            src="./static/images/fig_qual_sota_final.png"
+            alt="Qualitative comparison of SEER and baseline methods under three free-text prompt variants"
+          >
+        </figure>
       </div>
     </div>
     <!--/ Experiments and Findings. -->
