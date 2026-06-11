@@ -57,9 +57,7 @@
     }
 
     body {
-      background:
-        radial-gradient(circle at top left, rgba(17, 24, 39, 0.045), transparent 28rem),
-        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      background: #ffffff;
       color: var(--seer-text);
       font-family: "Google Sans", "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -91,9 +89,10 @@
       margin-left: auto;
       margin-right: auto;
       font-size: clamp(2.15rem, 4.6vw, 4rem);
-      line-height: 1.05;
+      letter-spacing: -0.015em;
+      line-height: 1.12;
       font-weight: 800;
-      letter-spacing: -0.055em;
+      letter-spacing: -0.015em;
     }
 
     .publication-authors {
@@ -107,22 +106,42 @@
     }
 
     .publication-links {
-      margin-top: 1.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.5rem;
     }
 
     .publication-links .link-block {
       display: inline-flex;
-      margin: 0.25rem;
+      align-items: center;
+      margin: 0;
     }
 
     .publication-links .button {
-      height: 2.55rem;
-      padding-left: 1.05rem;
-      padding-right: 1.05rem;
-      border: 1px solid rgba(17, 24, 39, 0.9);
-      background: var(--seer-ink);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.65rem;
+      min-width: 8.25rem;
+      padding: 0 1rem;
+      line-height: 1;
+    }
+
+    .publication-links .button .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 1.2rem;
+      width: 1.2rem;
+      margin-right: 0.45rem;
+    }
+
+    .publication-links .button span:not(.icon) {
+      display: inline-flex;
+      align-items: center;
     }
 
     .publication-links .button:hover {
@@ -450,10 +469,6 @@
         padding: 3.5rem 1.1rem 2.5rem;
       }
 
-      .publication-title {
-        letter-spacing: -0.04em;
-      }
-
       .seer-content-card {
         padding: 1.25rem;
       }
@@ -469,6 +484,10 @@
 
       .seer-bibtex-section .container {
         padding: 1.25rem;
+      }
+
+      .results-table .std-col {
+        font-weight: 400 !important;
       }
     }
   </style>
@@ -765,7 +784,7 @@
                 <th class="numeric">Dice &uarr;</th>
                 <th class="numeric">Dice &uarr;</th>
                 <th class="numeric">Worst Dice &uarr;</th>
-                <th class="numeric">Std. &darr;</th>
+                <th class="numeric std-col">Std. &darr;</th>
               </tr>
             </thead>
 
@@ -776,42 +795,42 @@
                 <td class="numeric">22.16</td>
                 <td class="numeric">0.69</td>
                 <td class="numeric">0.00</td>
-                <td class="numeric">2.53</td>
+                <td class="numeric std-col">2.53</td>
               </tr>
               <tr>
                 <td>BiomedParseV2</td>
                 <td class="numeric">18.66</td>
                 <td class="numeric">2.53</td>
                 <td class="numeric">0.00</td>
-                <td class="numeric">7.27</td>
+                <td class="numeric std-col">7.27</td>
               </tr>
               <tr>
                 <td>Text3DSAM</td>
                 <td class="numeric">0.10</td>
                 <td class="numeric">0.41</td>
                 <td class="numeric">0.00</td>
-                <td class="numeric">0.93</td>
+                <td class="numeric std-col">0.93</td>
               </tr>
               <tr>
                 <td>MedSAM3</td>
                 <td class="numeric">11.33</td>
                 <td class="numeric">16.62</td>
                 <td class="numeric">10.56</td>
-                <td class="numeric">5.17</td>
+                <td class="numeric std-col">5.17</td>
               </tr>
               <tr>
                 <td>VoxTell</td>
                 <td class="numeric">48.19</td>
                 <td class="numeric">52.15</td>
                 <td class="numeric">46.71</td>
-                <td class="numeric">3.35</td>
+                <td class="numeric std-col">3.35</td>
               </tr>
               <tr class="ours-row">
                 <td>SEER (Ours)</td>
                 <td class="numeric best">51.70</td>
                 <td class="numeric best">53.83</td>
                 <td class="numeric best">51.44</td>
-                <td class="numeric">1.67</td>
+                <td class="numeric best std-col">1.67</td>
               </tr>
 
               <tr class="group-separator">
@@ -820,48 +839,51 @@
                 <td class="numeric">96.05</td>
                 <td class="numeric">0.01</td>
                 <td class="numeric">0.00</td>
-                <td class="numeric">0.13</td>
+                <td class="numeric std-col">0.13</td>
               </tr>
               <tr>
                 <td>BiomedParseV2</td>
                 <td class="numeric">1.35</td>
                 <td class="numeric">8.53</td>
                 <td class="numeric">0.00</td>
-                <td class="numeric">7.50</td>
+                <td class="numeric std-col">7.50</td>
               </tr>
               <tr>
                 <td>Text3DSAM</td>
                 <td class="numeric">24.75</td>
                 <td class="numeric">0.01</td>
                 <td class="numeric">0.00</td>
-                <td class="numeric">0.16</td>
+                <td class="numeric std-col">0.16</td>
               </tr>
               <tr>
                 <td>MedSAM3</td>
                 <td class="numeric">18.26</td>
                 <td class="numeric">5.75</td>
                 <td class="numeric">3.67</td>
-                <td class="numeric">6.40</td>
+                <td class="numeric std-col">6.40</td>
               </tr>
               <tr>
                 <td>VoxTell</td>
                 <td class="numeric best">97.59</td>
                 <td class="numeric">92.26</td>
                 <td class="numeric">79.34</td>
-                <td class="numeric">7.49</td>
+                <td class="numeric std-col">7.49</td>
               </tr>
               <tr class="ours-row">
                 <td>SEER (Ours)</td>
                 <td class="numeric">97.56</td>
                 <td class="numeric best">97.39</td>
                 <td class="numeric best">95.47</td>
-                <td class="numeric">0.98</td>
+                <td class="numeric best std-col">0.98</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <h3 class="title is-4 subsection-title">Qualitative comparisons</h3>
+        <p class="caption">
+          Under three clinically plausible free-text prompt variants, SEER produces consistent, on-target masks across all variants, reflecting evidence-aligned disambiguation from the image. In contrast, baseline outputs are highly prompt-sensitive in free-text prompting mode, frequently drifting to off-target regions or collapsing to degenerate predictions, such as empty or fragmented masks, under minor wording changes.
+        </p>
         <div class="figure-card">
           <figure class="image">
             <img
@@ -869,9 +891,6 @@
               alt="Qualitative comparison of SEER and baseline methods under three free-text prompt variants"
             >
           </figure>
-          <p class="caption">
-            Under three clinically plausible free-text prompt variants, SEER produces consistent, on-target masks across all variants, reflecting evidence-aligned disambiguation from the image. In contrast, baseline outputs are highly prompt-sensitive in free-text prompting mode, frequently drifting to off-target regions or collapsing to degenerate predictions, such as empty or fragmented masks, under minor wording changes.
-          </p>
         </div>
       </div>
     </div>
