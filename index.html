@@ -155,22 +155,12 @@
               </span>
               <!-- Model Link. -->
               <span class="link-block">
-                <a href="https://github.com/Ztrura/SEER" 
+                <a href="https://huggingface.co/Ztrura/SEER" 
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <span aria-hidden="true">🤗</span>
                   </span>
-                  <span>Model</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/Ztrura/SEER"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
+                  <span>Model & Data</span>
                   </a>
             </div>
 
@@ -221,17 +211,383 @@
     </div>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+    <!-- Experiments and Findings. -->
+    <div class="columns is-centered" id="experiments-findings">
+      <div class="column is-full">
+        <style>
+          #experiments-findings .section-kicker {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+          }
+
+          #experiments-findings .section-lead {
+            max-width: 920px;
+            margin: 0 auto 2rem auto;
+            color: #4b5563;
+            line-height: 1.7;
+          }
+
+          #experiments-findings .ef-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 1.35rem;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+            height: 100%;
+          }
+
+          #experiments-findings .ef-card-title {
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.45rem;
+          }
+
+          #experiments-findings .ef-tag {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 0.22rem 0.65rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: #f3f4f6;
+            color: #374151;
+            margin-bottom: 0.75rem;
+          }
+
+          #experiments-findings .finding-card {
+            border-left: 4px solid #111827;
+          }
+
+          #experiments-findings .finding-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #111827;
+            margin-bottom: 0.4rem;
+          }
+
+          #experiments-findings .finding-label {
+            color: #4b5563;
+            line-height: 1.45;
+          }
+
+          #experiments-findings .protocol-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 1rem 1.15rem;
+            height: 100%;
+          }
+
+          #experiments-findings .protocol-index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background: #111827;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+          }
+
+          #experiments-findings .results-table {
+            font-size: 0.92rem;
+          }
+
+          #experiments-findings .results-table th {
+            vertical-align: middle;
+            white-space: nowrap;
+          }
+
+          #experiments-findings .results-table td {
+            vertical-align: middle;
+          }
+
+          #experiments-findings .results-table td.numeric,
+          #experiments-findings .results-table th.numeric {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+          }
+
+          #experiments-findings .dataset-cell {
+            background: #fafafa;
+            font-weight: 700;
+            color: #111827;
+            min-width: 9rem;
+          }
+
+          #experiments-findings .ours-row {
+            background: #f6f7f9;
+            font-weight: 700;
+          }
+
+          #experiments-findings .best {
+            font-weight: 800;
+            color: #111827;
+          }
+
+          #experiments-findings .group-separator td {
+            border-top: 2px solid #d1d5db;
+          }
+
+          #experiments-findings .caption {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-top: 0.75rem;
+          }
+
+          #experiments-findings .figure-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 1rem;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+          }
+
+          #experiments-findings .figure-card img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+          }
+
+          #experiments-findings .subsection-title {
+            margin-top: 2.75rem;
+            margin-bottom: 1rem;
+          }
+
+          @media screen and (max-width: 768px) {
+            #experiments-findings .results-table {
+              font-size: 0.82rem;
+            }
+
+            #experiments-findings .ef-card,
+            #experiments-findings .protocol-box {
+              padding: 1rem;
+            }
+          }
+        </style>
+
+        <div class="has-text-centered">
+          <div class="section-kicker">Evaluation</div>
+          <h2 class="title is-3">Experiments and Findings</h2>
+          <p class="section-lead">
+            We evaluate SEER on two out-of-distribution benchmarks and compare it with strong 3D medical segmentation baselines under both native label prompting and realistic free-text clinical prompting.
+          </p>
+        </div>
+
+        <div class="columns is-variable is-4">
+          <div class="column">
+            <div class="ef-card finding-card">
+              <div class="finding-number">53.83</div>
+              <div class="finding-label">
+                Free-text Dice on <strong>BrainMetShare</strong>, outperforming all compared baselines.
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ef-card finding-card">
+              <div class="finding-number">97.39</div>
+              <div class="finding-label">
+                Free-text Dice on <strong>PENGWIN</strong>, nearly matching label-prompted performance.
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ef-card finding-card">
+              <div class="finding-number">0.98</div>
+              <div class="finding-label">
+                Standard deviation on PENGWIN free-text prompts, indicating strong wording robustness.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title is-4 subsection-title">Evaluation datasets</h3>
+        <div class="columns is-variable is-4">
+          <div class="column">
+            <div class="ef-card">
+              <span class="ef-tag">MRI</span>
+              <div class="ef-card-title">BrainMetShare</div>
+              <p>
+                Partial-OOD / domain-shift evaluation. Brain anatomy remains within the seen anatomical domain, while institutional sources and target labels are outside the training coverage.
+              </p>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="ef-card">
+              <span class="ef-tag">CT</span>
+              <div class="ef-card-title">PENGWIN</div>
+              <p>
+                Strict OOD evaluation. Both pelvic anatomy and pelvic bone target labels are absent from SEER-Trace reasoning supervision and target coverage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title is-4 subsection-title">Prompting protocols</h3>
+        <div class="columns is-variable is-4">
+          <div class="column">
+            <div class="protocol-box">
+              <p>
+                <span class="protocol-index">1</span>
+                <strong>Label prompting mode</strong>
+              </p>
+              <p>
+                Baselines are evaluated using their natively supported, predefined label prompting interfaces.
+              </p>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="protocol-box">
+              <p>
+                <span class="protocol-index">2</span>
+                <strong>Free-text prompting mode</strong>
+              </p>
+              <p>
+                Baselines are evaluated using realistic, linguistically diverse clinical requests introduced in SEER-Trace.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="title is-4 subsection-title">Quantitative results</h3>
+        <p class="caption">
+          <strong>Table 1.</strong> Performance comparison under label and free-text prompting modes. Higher Dice and Worst Dice are better; lower standard deviation indicates better robustness across free-text prompt variants.
+        </p>
+
+        <div class="table-container">
+          <table class="table is-bordered is-hoverable is-fullwidth results-table">
+            <thead>
+              <tr>
+                <th rowspan="2">Dataset</th>
+                <th rowspan="2">Method</th>
+                <th colspan="1" class="has-text-centered">Label Prompting</th>
+                <th colspan="3" class="has-text-centered">Free-text Prompting</th>
+              </tr>
+              <tr>
+                <th class="numeric">Dice &uarr;</th>
+                <th class="numeric">Dice &uarr;</th>
+                <th class="numeric">Worst Dice &uarr;</th>
+                <th class="numeric">Std. &darr;</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td rowspan="6" class="dataset-cell">BrainMetShare</td>
+                <td>SAT</td>
+                <td class="numeric">22.16</td>
+                <td class="numeric">0.69</td>
+                <td class="numeric">0.00</td>
+                <td class="numeric">2.53</td>
+              </tr>
+              <tr>
+                <td>BiomedParseV2</td>
+                <td class="numeric">18.66</td>
+                <td class="numeric">2.53</td>
+                <td class="numeric">0.00</td>
+                <td class="numeric">7.27</td>
+              </tr>
+              <tr>
+                <td>Text3DSAM</td>
+                <td class="numeric">0.10</td>
+                <td class="numeric">0.41</td>
+                <td class="numeric">0.00</td>
+                <td class="numeric">0.93</td>
+              </tr>
+              <tr>
+                <td>MedSAM3</td>
+                <td class="numeric">11.33</td>
+                <td class="numeric">16.62</td>
+                <td class="numeric">10.56</td>
+                <td class="numeric">5.17</td>
+              </tr>
+              <tr>
+                <td>VoxTell</td>
+                <td class="numeric">48.19</td>
+                <td class="numeric">52.15</td>
+                <td class="numeric">46.71</td>
+                <td class="numeric">3.35</td>
+              </tr>
+              <tr class="ours-row">
+                <td>SEER (Ours)</td>
+                <td class="numeric best">51.70</td>
+                <td class="numeric best">53.83</td>
+                <td class="numeric best">51.44</td>
+                <td class="numeric best">1.67</td>
+              </tr>
+
+              <tr class="group-separator">
+                <td rowspan="6" class="dataset-cell">PENGWIN</td>
+                <td>SAT</td>
+                <td class="numeric">96.05</td>
+                <td class="numeric">0.01</td>
+                <td class="numeric">0.00</td>
+                <td class="numeric">0.13</td>
+              </tr>
+              <tr>
+                <td>BiomedParseV2</td>
+                <td class="numeric">1.35</td>
+                <td class="numeric">8.53</td>
+                <td class="numeric">0.00</td>
+                <td class="numeric">7.50</td>
+              </tr>
+              <tr>
+                <td>Text3DSAM</td>
+                <td class="numeric">24.75</td>
+                <td class="numeric">0.01</td>
+                <td class="numeric">0.00</td>
+                <td class="numeric">0.16</td>
+              </tr>
+              <tr>
+                <td>MedSAM3</td>
+                <td class="numeric">18.26</td>
+                <td class="numeric">5.75</td>
+                <td class="numeric">3.67</td>
+                <td class="numeric">6.40</td>
+              </tr>
+              <tr>
+                <td>VoxTell</td>
+                <td class="numeric best">97.59</td>
+                <td class="numeric">92.26</td>
+                <td class="numeric">79.34</td>
+                <td class="numeric">7.49</td>
+              </tr>
+              <tr class="ours-row">
+                <td>SEER (Ours)</td>
+                <td class="numeric">97.56</td>
+                <td class="numeric best">97.39</td>
+                <td class="numeric best">95.47</td>
+                <td class="numeric best">0.98</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="title is-4 subsection-title">Qualitative comparisons</h3>
+        <div class="figure-card">
+          <figure class="image">
+            <img
+              src="./static/images/fig_qual_sota_final.png"
+              alt="Qualitative comparison of SEER and baseline methods under three free-text prompt variants"
+            >
+          </figure>
+          <p class="caption">
+            <strong>Figure 1.</strong> Under three clinically plausible free-text prompt variants, SEER produces consistent, on-target masks across all variants, reflecting evidence-aligned disambiguation from the image. In contrast, baseline outputs are highly prompt-sensitive in free-text prompting mode, frequently drifting to off-target regions or collapsing to degenerate predictions, such as empty or fragmented masks, under minor wording changes.
+          </p>
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
+    <!--/ Experiments and Findings. -->
   </div>
 </section>
 
