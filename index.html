@@ -121,6 +121,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.45rem;
       width: auto;
       min-width: 0;
       max-width: max-content;
@@ -128,20 +129,23 @@
       padding: 0 1rem;
       line-height: 1;
       white-space: nowrap;
+      text-align: center;
     }
 
     .publication-links .button .icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 0 0 auto;
       height: 1.2rem;
       width: 1.2rem;
-      margin-right: 0.45rem;
+      margin: 0 !important;
     }
 
     .publication-links .button span:not(.icon) {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
     }
 
     .publication-links .button:hover {
@@ -153,6 +157,10 @@
     .seer-teaser {
       background: var(--seer-surface);
       border-bottom: 0;
+    }
+
+    .seer-teaser .container {
+      max-width: 1180px;
     }
 
     .seer-teaser .hero-body {
@@ -416,12 +424,20 @@
       background: #ffffff;
     }
 
+    #experiments-findings .qualitative-figure {
+      border: 1px solid var(--seer-border);
+      border-radius: var(--seer-radius-sm);
+      padding: 0.5rem;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
     #experiments-findings .qualitative-figure img {
       display: block;
       width: 100%;
       height: auto;
       border: 0;
-      border-radius: 0;
+      border-radius: calc(var(--seer-radius-sm) - 4px);
       background: transparent;
     }
 
@@ -511,7 +527,6 @@
   <script src="./static/js/index.js"></script>
 </head>
 <body>
-
 
 <section class="hero seer-hero">
   <div class="hero-body">
