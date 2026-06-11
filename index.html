@@ -33,6 +33,447 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.png">
 
+
+  <style id="seer-unified-style">
+    :root {
+      --seer-ink: #111827;
+      --seer-text: #374151;
+      --seer-muted: #6b7280;
+      --seer-subtle: #f8fafc;
+      --seer-surface: #ffffff;
+      --seer-border: #e5e7eb;
+      --seer-border-strong: #d1d5db;
+      --seer-accent: #111827;
+      --seer-accent-soft: #f3f4f6;
+      --seer-shadow: 0 14px 36px rgba(15, 23, 42, 0.07);
+      --seer-shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.045);
+      --seer-radius-lg: 20px;
+      --seer-radius-md: 16px;
+      --seer-radius-sm: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(17, 24, 39, 0.045), transparent 28rem),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      color: var(--seer-text);
+      font-family: "Google Sans", "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: var(--seer-ink);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+    }
+
+    .title {
+      color: var(--seer-ink);
+      letter-spacing: -0.025em;
+    }
+
+    .seer-hero {
+      background:
+        linear-gradient(180deg, rgba(249, 250, 251, 0.96), rgba(255, 255, 255, 0.98)),
+        radial-gradient(circle at 50% 0%, rgba(17, 24, 39, 0.08), transparent 30rem);
+      border-bottom: 1px solid var(--seer-border);
+    }
+
+    .seer-hero .hero-body {
+      padding: 5rem 1.5rem 3.25rem;
+    }
+
+    .publication-title {
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: clamp(2.15rem, 4.6vw, 4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.055em;
+    }
+
+    .publication-authors {
+      color: var(--seer-muted);
+      line-height: 1.65;
+    }
+
+    .publication-authors a {
+      color: var(--seer-ink);
+      font-weight: 600;
+    }
+
+    .publication-links {
+      margin-top: 1.35rem;
+    }
+
+    .publication-links .link-block {
+      display: inline-flex;
+      margin: 0.25rem;
+    }
+
+    .publication-links .button {
+      height: 2.55rem;
+      padding-left: 1.05rem;
+      padding-right: 1.05rem;
+      border: 1px solid rgba(17, 24, 39, 0.9);
+      background: var(--seer-ink);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .publication-links .button:hover {
+      transform: translateY(-1px);
+      background: #000000;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
+    }
+
+    .seer-teaser {
+      background: var(--seer-surface);
+      border-bottom: 1px solid var(--seer-border);
+    }
+
+    .seer-teaser .hero-body {
+      padding: 2.5rem 1.5rem 3.25rem;
+    }
+
+    .seer-teaser img {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--seer-border);
+      border-radius: var(--seer-radius-lg);
+      background: var(--seer-surface);
+      box-shadow: var(--seer-shadow);
+    }
+
+    .seer-teaser .subtitle {
+      max-width: 900px;
+      margin: 1.4rem auto 0;
+      color: var(--seer-text);
+      line-height: 1.65;
+    }
+
+    .seer-main-section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .seer-content-card {
+      border: 1px solid var(--seer-border);
+      border-radius: var(--seer-radius-lg);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--seer-shadow-soft);
+      padding: 2rem;
+    }
+
+    .seer-content-card .content p {
+      color: var(--seer-text);
+      font-size: 1.01rem;
+      line-height: 1.75;
+    }
+
+    .seer-content-card .title {
+      margin-bottom: 1.25rem;
+    }
+
+    #experiments-findings {
+      margin-top: 3rem;
+    }
+
+    #experiments-findings .section-kicker {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--seer-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    #experiments-findings .section-lead {
+      max-width: 920px;
+      margin: 0 auto 2rem auto;
+      color: var(--seer-muted);
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    #experiments-findings .ef-card,
+    #experiments-findings .protocol-box,
+    #experiments-findings .figure-card {
+      border: 1px solid var(--seer-border);
+      border-radius: var(--seer-radius-md);
+      background: var(--seer-surface);
+      box-shadow: var(--seer-shadow-soft);
+    }
+
+    #experiments-findings .ef-card {
+      padding: 1.35rem;
+      height: 100%;
+    }
+
+    #experiments-findings .ef-card-title {
+      font-weight: 800;
+      color: var(--seer-ink);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.01em;
+    }
+
+    #experiments-findings .ef-card p,
+    #experiments-findings .protocol-box p {
+      color: var(--seer-text);
+      line-height: 1.6;
+    }
+
+    #experiments-findings .ef-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.24rem 0.7rem;
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: var(--seer-accent-soft);
+      color: var(--seer-ink);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+
+    #experiments-findings .finding-card {
+      position: relative;
+      overflow: hidden;
+      border-left: 0;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+    }
+
+    #experiments-findings .finding-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      background: var(--seer-accent);
+    }
+
+    #experiments-findings .finding-number {
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      font-weight: 850;
+      line-height: 1;
+      color: var(--seer-ink);
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.04em;
+    }
+
+    #experiments-findings .finding-label {
+      color: var(--seer-muted);
+      line-height: 1.5;
+      font-size: 0.96rem;
+    }
+
+    #experiments-findings .finding-label strong {
+      color: var(--seer-ink);
+    }
+
+    #experiments-findings .protocol-box {
+      padding: 1.1rem 1.2rem;
+      height: 100%;
+    }
+
+    #experiments-findings .protocol-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--seer-ink);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
+    }
+
+    #experiments-findings .subsection-title {
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    #experiments-findings .caption {
+      color: var(--seer-muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin-top: 0.85rem;
+    }
+
+    #experiments-findings .caption strong {
+      color: var(--seer-ink);
+    }
+
+    #experiments-findings .table-container {
+      border: 1px solid var(--seer-border);
+      border-radius: var(--seer-radius-md);
+      background: var(--seer-surface);
+      box-shadow: var(--seer-shadow-soft);
+      overflow: auto;
+      margin-top: 0.9rem;
+    }
+
+    #experiments-findings .results-table {
+      margin-bottom: 0;
+      font-size: 0.91rem;
+      background: var(--seer-surface);
+    }
+
+    #experiments-findings .results-table th {
+      vertical-align: middle;
+      white-space: nowrap;
+      color: var(--seer-ink);
+      background: #f9fafb;
+      border-color: var(--seer-border);
+      font-weight: 800;
+    }
+
+    #experiments-findings .results-table td {
+      vertical-align: middle;
+      border-color: var(--seer-border);
+      color: var(--seer-text);
+    }
+
+    #experiments-findings .results-table tbody tr:hover {
+      background: #fafafa;
+    }
+
+    #experiments-findings .results-table td.numeric,
+    #experiments-findings .results-table th.numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #experiments-findings .dataset-cell {
+      background: #fbfbfc;
+      font-weight: 800;
+      color: var(--seer-ink);
+      min-width: 9rem;
+    }
+
+    #experiments-findings .ours-row {
+      background: #f3f4f6;
+      font-weight: 800;
+    }
+
+    #experiments-findings .ours-row td {
+      color: var(--seer-ink);
+    }
+
+    #experiments-findings .best {
+      font-weight: 900;
+      color: var(--seer-ink);
+    }
+
+    #experiments-findings .group-separator td {
+      border-top: 2px solid var(--seer-border-strong);
+    }
+
+    #experiments-findings .figure-card {
+      padding: 1rem;
+      overflow: hidden;
+    }
+
+    #experiments-findings .figure-card img {
+      border-radius: var(--seer-radius-sm);
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--seer-border);
+      background: #ffffff;
+    }
+
+    .seer-bibtex-section {
+      padding-top: 0.75rem;
+      padding-bottom: 3.75rem;
+      background: transparent;
+    }
+
+    .seer-bibtex-section .container {
+      border: 1px solid var(--seer-border);
+      border-radius: var(--seer-radius-lg);
+      background: var(--seer-surface);
+      box-shadow: var(--seer-shadow-soft);
+      padding: 1.8rem;
+    }
+
+    .seer-bibtex-section pre {
+      border-radius: var(--seer-radius-sm);
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 1.15rem;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .seer-bibtex-section code {
+      color: inherit;
+      background: transparent;
+    }
+
+    .seer-footer {
+      background: #f3f4f6;
+      border-top: 1px solid var(--seer-border);
+      color: var(--seer-muted);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .seer-footer .icon-link {
+      color: var(--seer-ink);
+      margin: 0 0.4rem;
+      transition: transform 160ms ease, opacity 160ms ease;
+    }
+
+    .seer-footer .icon-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.75;
+    }
+
+    .seer-footer .content p {
+      color: var(--seer-muted);
+      line-height: 1.65;
+    }
+
+    @media screen and (max-width: 768px) {
+      .seer-hero .hero-body {
+        padding: 3.5rem 1.1rem 2.5rem;
+      }
+
+      .publication-title {
+        letter-spacing: -0.04em;
+      }
+
+      .seer-content-card {
+        padding: 1.25rem;
+      }
+
+      #experiments-findings .results-table {
+        font-size: 0.82rem;
+      }
+
+      #experiments-findings .ef-card,
+      #experiments-findings .protocol-box {
+        padding: 1rem;
+      }
+
+      .seer-bibtex-section .container {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -82,7 +523,7 @@
 </nav> -->
 
 
-<section class="hero">
+<section class="hero seer-hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -161,7 +602,8 @@
                       <span aria-hidden="true">🤗</span>
                   </span>
                   <span>Model & Data</span>
-                  </a>
+                </a>
+              </span>
             </div>
 
           </div>
@@ -171,13 +613,13 @@
   </div>
 </section>
 
-<section class="hero teaser" id="demo">
+<section class="hero teaser seer-teaser" id="demo">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <img
         src="./static/images/method_overview.png"
         alt="Overview of the SEER framework"
-        style="width: 100%; height: auto;"
+
       />
 
       <h2 class="subtitle has-text-centered">
@@ -190,11 +632,11 @@
 </section>
 
 
-<section class="section">
+<section class="section seer-main-section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-four-fifths seer-content-card seer-abstract-card">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -214,168 +656,8 @@
     <!-- Experiments and Findings. -->
     <div class="columns is-centered" id="experiments-findings">
       <div class="column is-full">
-        <style>
-          #experiments-findings .section-kicker {
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
-          }
-
-          #experiments-findings .section-lead {
-            max-width: 920px;
-            margin: 0 auto 2rem auto;
-            color: #4b5563;
-            line-height: 1.7;
-          }
-
-          #experiments-findings .ef-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 1.35rem;
-            background: #ffffff;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-            height: 100%;
-          }
-
-          #experiments-findings .ef-card-title {
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0.45rem;
-          }
-
-          #experiments-findings .ef-tag {
-            display: inline-block;
-            border-radius: 999px;
-            padding: 0.22rem 0.65rem;
-            font-size: 0.78rem;
-            font-weight: 700;
-            background: #f3f4f6;
-            color: #374151;
-            margin-bottom: 0.75rem;
-          }
-
-          #experiments-findings .finding-card {
-            border-left: 4px solid #111827;
-          }
-
-          #experiments-findings .finding-number {
-            font-size: 1.75rem;
-            font-weight: 800;
-            line-height: 1;
-            color: #111827;
-            margin-bottom: 0.4rem;
-          }
-
-          #experiments-findings .finding-label {
-            color: #4b5563;
-            line-height: 1.45;
-          }
-
-          #experiments-findings .protocol-box {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            padding: 1rem 1.15rem;
-            height: 100%;
-          }
-
-          #experiments-findings .protocol-index {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 1.7rem;
-            height: 1.7rem;
-            border-radius: 50%;
-            background: #111827;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-          }
-
-          #experiments-findings .results-table {
-            font-size: 0.92rem;
-          }
-
-          #experiments-findings .results-table th {
-            vertical-align: middle;
-            white-space: nowrap;
-          }
-
-          #experiments-findings .results-table td {
-            vertical-align: middle;
-          }
-
-          #experiments-findings .results-table td.numeric,
-          #experiments-findings .results-table th.numeric {
-            text-align: right;
-            font-variant-numeric: tabular-nums;
-          }
-
-          #experiments-findings .dataset-cell {
-            background: #fafafa;
-            font-weight: 700;
-            color: #111827;
-            min-width: 9rem;
-          }
-
-          #experiments-findings .ours-row {
-            background: #f6f7f9;
-            font-weight: 700;
-          }
-
-          #experiments-findings .best {
-            font-weight: 800;
-            color: #111827;
-          }
-
-          #experiments-findings .group-separator td {
-            border-top: 2px solid #d1d5db;
-          }
-
-          #experiments-findings .caption {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.65;
-            margin-top: 0.75rem;
-          }
-
-          #experiments-findings .figure-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 1rem;
-            background: #ffffff;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-          }
-
-          #experiments-findings .figure-card img {
-            border-radius: 10px;
-            width: 100%;
-            height: auto;
-          }
-
-          #experiments-findings .subsection-title {
-            margin-top: 2.75rem;
-            margin-bottom: 1rem;
-          }
-
-          @media screen and (max-width: 768px) {
-            #experiments-findings .results-table {
-              font-size: 0.82rem;
-            }
-
-            #experiments-findings .ef-card,
-            #experiments-findings .protocol-box {
-              padding: 1rem;
-            }
-          }
-        </style>
 
         <div class="has-text-centered">
-          <div class="section-kicker">Evaluation</div>
           <h2 class="title is-3">Experiments and Findings</h2>
           <p class="section-lead">
             We evaluate SEER on two out-of-distribution benchmarks and compare it with strong 3D medical segmentation baselines under both native label prompting and realistic free-text clinical prompting.
@@ -385,25 +667,31 @@
         <div class="columns is-variable is-4">
           <div class="column">
             <div class="ef-card finding-card">
-              <div class="finding-number">53.83</div>
+              <div class="finding-number">SOTA</div>
               <div class="finding-label">
-                Free-text Dice on <strong>BrainMetShare</strong>, outperforming all compared baselines.
+                <strong>Free-text prompting performance</strong><br>
+                SEER achieves the best Dice on both OOD benchmarks:
+                <strong>53.83</strong> on BrainMetShare and <strong>97.39</strong> on PENGWIN.
               </div>
             </div>
           </div>
+
           <div class="column">
             <div class="ef-card finding-card">
-              <div class="finding-number">97.39</div>
+              <div class="finding-number">−81.94%</div>
               <div class="finding-label">
-                Free-text Dice on <strong>PENGWIN</strong>, nearly matching label-prompted performance.
+                <strong>Lower performance variance</strong><br>
+                Under linguistic perturbations, SEER substantially reduces prediction instability across prompt variants.
               </div>
             </div>
           </div>
+
           <div class="column">
             <div class="ef-card finding-card">
-              <div class="finding-number">0.98</div>
+              <div class="finding-number">+18.60%</div>
               <div class="finding-label">
-                Standard deviation on PENGWIN free-text prompts, indicating strong wording robustness.
+                <strong>Higher worst-case Dice</strong><br>
+                SEER improves worst-case segmentation quality, showing stronger robustness to adverse prompt wording.
               </div>
             </div>
           </div>
@@ -594,7 +882,7 @@
 
 
 
-<section class="section" id="BibTeX">
+<section class="section seer-bibtex-section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{zhang2026seer,
@@ -607,7 +895,7 @@
 </section>
 
 
-<footer class="footer">
+<footer class="footer seer-footer">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link" href="https://arxiv.org/pdf/2603.08215">
